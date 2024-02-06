@@ -9,6 +9,6 @@ public class TicketTimeComparator implements Comparator<Ticket> {
         // ваш код
         int comparison1 = t1.getTimeTo() - t1.getTimeFrom();
         int comparison2 = t2.getTimeTo() - t2.getTimeFrom();
-        return integer.compare(comparison1, comparison2);
+        return Integer.compare(comparison1, comparison2);
     }
 }

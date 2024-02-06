@@ -56,7 +56,7 @@ public class AviaSouls {
         return result;
     }
 
-    public searchAndSortBy(String from, String to, Comparator<Ticket> comparator) {
+    public Ticket[] searchAndSortBy(String from, String to, Comparator<Ticket> comparator) {
         Ticket[] result = new Ticket[0];
         for (Ticket ticket : tickets) {
             if (ticket.getFrom().equals(from)) {
@@ -66,7 +66,6 @@ public class AviaSouls {
             }
         }
         Arrays.sort(result, comparator);
-        return;
-        result;
+        return result;
     }
 }
