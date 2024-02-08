@@ -61,4 +61,32 @@ public class AviaSoulsTest {
         assertArrayEquals(new Ticket[]{ticket1, ticket2, ticket3}, searchResult);
         System.out.println("Тест №4 - компаратор");
     }
+
+    @Test
+    public void ticketMultipleSearch() {
+        Ticket ticket1 = new Ticket("Самара", "Москва", 10_000, 11, 12);
+        Ticket ticket2 = new Ticket("Москва", "Санкт-Петербург", 12_500, 12, 13);
+        Ticket ticket3 = new Ticket("Санкт-Петербург", "Самара", 15_000, 13, 15);
+        Ticket ticket4 = new Ticket("Самара", "Москва", 15_000, 11, 12);
+        AviaSouls manager = new AviaSouls();
+        manager.add(ticket1);
+        manager.add(ticket2);
+        manager.add(ticket3);
+        manager.add(ticket4);
+        Ticket[] searchResult = manager.search("Самара", "Москва");
+        assertArrayEquals(new Ticket[]{ticket1, ticket4}, searchResult);
+        System.out.println("Тест №5 - поиск несколько");
+    }
+
+    @Test
+    public void ticketNotSearch() {
+        Ticket ticket1 = new Ticket("Самара", "Москва", 10_000, 11, 12);
+        Ticket ticket2 = new Ticket("Казань", "Санкт-Петербург", 12_500, 12, 13);
+        AviaSouls manager = new AviaSouls();
+        manager.add(ticket1);
+        manager.add(ticket2);
+        Ticket[] searchResult = manager.search("Москва", "Казань");
+        assertArrayEquals(new Ticket[]{}, searchResult);
+        System.out.println("Тест №6 - поиск не найдено");
+    }
 }

@@ -11,4 +11,6 @@ public class TicketTimeComparator implements Comparator<Ticket> {
         int comparison2 = t2.getTimeTo() - t2.getTimeFrom();
         return Integer.compare(comparison1, comparison2);
     }
+
+
 }
